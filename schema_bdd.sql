@@ -5,6 +5,10 @@
 
 -- ------------------------------------
 
+Create database if not exists absolute_stream;
+
+USE absolute_stream;
+
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(50) NOT NULL,
