@@ -70,15 +70,15 @@ export const mediaData = [
   },
   {
     id: 2,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-2.jpg",
+    afficheH: "/test/afficheH-2.jpg",
+    background: "/test/background-2.jpg",
     title: "Joker",
     description:
       "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
     année: 2019,
     recommandations: 81,
-    link: "https://example.com/media1",
+    link: "https://example.com/media2",
     categorie: "Film",
 
     // -----
@@ -95,15 +95,15 @@ export const mediaData = [
   },
   {
     id: 3,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-3.jpg",
+    afficheH: "/test/afficheH-3.jpg",
+    background: "/test/background-3.jpg",
     title: "John Wick : Chapitre 4",
     description:
       "John Wick affronte ses adversaires les plus redoutables dans ce quatrième volet de la série. De New York à Osaka, en passant par Paris et Berlin, John Wick mène un combat contre la Grande Table, la terrible organisation criminelle qui a mis sa tête à prix, en affrontant ses tueurs les plus dangereux...",
     année: 2023,
     recommandations: 77,
-    link: "https://example.com/media1",
+    link: "https://example.com/media3",
     categorie: "Film",
 
     // -----
@@ -120,15 +120,15 @@ export const mediaData = [
   },
   {
     id: 4,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-4.jpg",
+    afficheH: "/test/afficheH-4.jpg",
+    background: "/test/background-4.jpg",
     title: "The Beekeeper",
     description:
       "La quête brutale de vengeance d’un homme prend des proportions démesurées alors que son passé d’agent secret d’une puissante organisation clandestine connue sous le nom des Apiculteurs est révélé.",
     année: 2024,
     recommandations: 73,
-    link: "https://example.com/media1",
+    link: "https://example.com/media4",
     categorie: "Film",
 
     // -----
@@ -145,15 +145,15 @@ export const mediaData = [
   },
   {
     id: 5,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-5.jpg",
+    afficheH: "/test/afficheH-5.jpg",
+    background: "/test/background-5.jpg",
     title: "En plein vol",
     description:
       "Un pro du braquage tente le coup du siècle avec une équipe chevronnée : dérober 500 millions de dollars en or... dans un avion en plein vol !",
     année: 2024,
     recommandations: 64,
-    link: "https://example.com/media1",
+    link: "https://example.com/media5",
     categorie: "Film",
 
     // -----
@@ -170,15 +170,15 @@ export const mediaData = [
   },
   {
     id: 6,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-6.jpg",
+    afficheH: "/test/afficheH-6.jpg",
+    background: "/test/background-6.jpg",
     title: "Sinners",
     description:
       "Alors qu’ils cherchent à s’affranchir d’un lourd passé, deux frères jumeaux reviennent dans leur ville natale pour repartir à zéro. Mais ils comprennent qu’une puissance maléfique bien plus redoutable guette leur retour avec impatience.",
     année: 2025,
     recommandations: 75,
-    link: "https://example.com/media1",
+    link: "https://example.com/media6",
     categorie: "Film",
 
     // -----
@@ -195,15 +195,15 @@ export const mediaData = [
   },
   {
     id: 7,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-7.jpg",
+    afficheH: "/test/afficheH-7.jpg",
+    background: "/test/background-7.jpg",
     title: "Le Monde incroyable de Gumball",
     description:
       "Le quotidien de Gumball, un chaton bleu âgé 12 ans, ainsi que son compagnon Darwin, un poisson rouge domestique, devenu son frère adoptif après que des bras et des jambes lui aient poussé. Gumball et sa famille vivent à Elmore, une ville imaginaire, semblant appartenir au monde réel, mais qui est habitée par toutes sortes de créatures animées.",
     année: 2011,
     recommandations: 85,
-    link: "https://example.com/media1",
+    link: "https://example.com/media7",
     categorie: "Série",
 
     // -----
@@ -225,15 +225,15 @@ export const mediaData = [
   },
   {
     id: 8,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-8.jpg",
+    afficheH: "/test/afficheH-8.jpg",
+    background: "/test/background-8.jpg",
     title: "Stranger Things",
     description:
       "Quand un jeune garçon disparaît, une petite ville découvre une affaire mystérieuse, des expériences secrètes, des forces surnaturelles terrifiantes... et une fillette.",
     année: "2016",
     recommandations: "100",
-    link: "https://example.com/media1",
+    link: "https://example.com/media8",
     categorie: "Série",
 
     // -----
@@ -250,15 +250,15 @@ export const mediaData = [
   },
   {
     id: 9,
-    afficheV: "/test/afficheV-1.jpg",
-    afficheH: "/test/afficheH-1.jpg",
-    background: "/test/background-1.jpg",
+    afficheV: "/test/afficheV-9.jpg",
+    afficheH: "/test/afficheH-9.jpg",
+    background: "/test/background-9.jpg",
     title: "The Rookie : Le Flic de Los Angeles",
     description:
       "Lorsque sa femme le quitte et que son fils part à la fac, John Nolan, la quarantaine, est à un tournant de sa vie et décide de réaliser un vieux rêve : devenir flic ! Il part vivre à Los Angeles et se retrouve, malgré son âge, un bleu parmi les bleus...",
     année: "2018",
     recommandations: "85",
-    link: "https://example.com/media1",
+    link: "https://example.com/media9",
     categorie: "Série",
 
     // -----
@@ -279,49 +279,49 @@ export const plateformesData = [
   {
     id: 1,
     name: "Apple TV+",
-    afficheH: "/test/plateformes/apple_tv.png",
+    afficheH: "/plateformes/apple_tv.png",
     link: "https://platformA.com",
   },
   {
     id: 2,
     name: "DC Comics",
-    afficheH: "/test/plateformes/dc_comics.png",
+    afficheH: "/plateformes/dc_comics.png",
     link: "https://platformB.com",
   },
   {
     id: 3,
     name: "Disney+",
-    afficheH: "/test/plateformes/disney_plus.png",
+    afficheH: "/plateformes/disney_plus.png",
     link: "https://platformA.com",
   },
   {
     id: 4,
-    name: "Marvel Studio",
-    afficheH: "/test/plateformes/marvel_studio.png",
+    name: "Marvel Studios",
+    afficheH: "/plateformes/marvel_studios.png",
     link: "https://platformA.com",
   },
   {
     id: 5,
     name: "Netflix",
-    afficheH: "/test/plateformes/netflix.png",
+    afficheH: "/plateformes/netflix.png",
     link: "https://platformA.com",
   },
   {
     id: 6,
     name: "Paramount+",
-    afficheH: "/test/plateformes/paramount_plus.png",
+    afficheH: "/plateformes/paramount_plus.png",
     link: "https://platformA.com",
   },
   {
     id: 7,
     name: "Prime Video",
-    afficheH: "/test/plateformes/prime_video.png",
+    afficheH: "/plateformes/prime_video.png",
     link: "https://platformA.com",
   },
   {
     id: 8,
     name: "Warner Bros.",
-    afficheH: "/test/plateformes/warner_bros.png",
+    afficheH: "/plateformes/warner_bros.png",
     link: "https://platformA.com",
   },
 ];
