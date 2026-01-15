@@ -1,6 +1,9 @@
-import { count } from "console";
 import { NextResponse } from "next/server";
 
+/**
+ * API Route pour récupérer les films populaires depuis TMDb
+ * GET /api/tmdb/popular
+ */
 export async function GET() {
   const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
 
