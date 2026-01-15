@@ -20,7 +20,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed w-full flex flex-row justify-between items-center px-20 h-15">
+    <div className="fixed w-full flex flex-row justify-between items-center px-20 h-15 z-50 bg-black backdrop-blur-sm">
       <div className="flex flex-row items-center gap-10 text-white">
         <Link
           href="/"
