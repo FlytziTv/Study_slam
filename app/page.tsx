@@ -1,13 +1,22 @@
+import MediaCarrousel from "@/components/carrousel/MediaCarrousel";
+import PlateformesCarrousel from "@/components/carrousel/PlateformesCarrousel";
 import Header from "@/components/navbar/Header";
+import BannerMedia from "@/components/page/BannerMedia";
+import { allMedia, films, plateformesData, series } from "@/data/test";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-black font-sans ">
       <Header />
-      <main className="flex min-h-screen w-full flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold text-white">
-          Bienvenue sur Absolute Stream
-        </h1>
+      <BannerMedia data={allMedia} />
+      <main className="flex flex-col w-full justify-center p-10 gap-10">
+        {/* Header */}
+
+        {/* Importation de la liste des plateformes de streaming */}
+        <PlateformesCarrousel data={plateformesData} />
+
+        <MediaCarrousel data={films} title="Films Populaires" />
+        <MediaCarrousel data={series} title="Séries Populaires" />
       </main>
     </div>
   );
