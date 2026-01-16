@@ -652,3 +652,126 @@ export const acteursData = [
     placeOfBirth: "La Mirada, California, USA",
   },
 ];
+
+export const users = [
+  {
+    id: 1,
+    name: "Chaïna92i",
+    avatarUrl: "https://avatars.githubusercontent.com/u/242433335?v=4",
+    stats: [
+      { label: "Vus", value: 34 },
+      { label: "Avis", value: 12 },
+      { label: "Note", value: 30 },
+    ],
+    favoritesMedia: [
+      {
+        id: 1,
+        type: "film",
+        title: "La Femme de ménage",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/szdrVdnS8XAzqFyzPDhYXaJk7EK.jpg",
+      },
+      {
+        id: 2,
+        type: "serie",
+        title: "J'irai cracher sur vos tombes",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/6kHy5g4rXg5oDjLFSRTrJ8V2RSH.jpg",
+      },
+      {
+        id: 3,
+        type: "serie",
+        title: "Peaky Blinders",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+      },
+      {
+        id: 4,
+        type: "film",
+        title: "La Reine des neiges",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/fikeGulMBxdBmyCK8cvRbqaUcDR.jpg",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "TaeVieDev",
+    avatarUrl: "https://avatars.githubusercontent.com/u/201229455?v=4",
+    stats: [
+      { id: 1, label: "Vus", value: 60 },
+      { id: 2, label: "Avis", value: 54 },
+      { id: 3, label: "Note", value: 46 },
+    ],
+    favoritesMedia: [
+      {
+        id: 1,
+        type: "serie",
+        title: "Stranger Things",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/4Y5ZXYnWBIV8Vpe8hcA0LH6hC80.jpg",
+      },
+      {
+        id: 2,
+        type: "film",
+        title: "Dune : Première partie",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/qpyaW4xUPeIiYA5ckg5zAZFHvsb.jpg",
+      },
+      {
+        id: 3,
+        type: "film",
+        title: "Bad Boys : Ride or Die",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/zCZJXSDPZKGml4I5zvxNpdx8jra.jpg",
+      },
+      {
+        id: 4,
+        type: "serie",
+        title: "Game of Thrones",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/eRMfekBOnwyE9G0ffyEJIBOjX2n.jpg",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Flytzi",
+    avatarUrl: "https://avatars.githubusercontent.com/u/150966588?v=4",
+    stats: [
+      { label: "Vus", value: 178 },
+      { label: "Avis", value: 76 },
+      { label: "Note", value: 140 },
+    ],
+    favoritesMedia: [
+      {
+        id: 1,
+        type: "film",
+        title: "The Beekeeper",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/bEXZjJqcviwuGOGLbyP4RTKRlmd.jpg",
+      },
+      {
+        id: 2,
+        type: "film",
+        title: "Sans aucun remords",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/mqFZul2C3xWP1IFoXvuiHU69GmN.jpg",
+      },
+      {
+        id: 3,
+        type: "serie",
+        title: "Alice in Borderland",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/217V9dhelgjELLZGawTmRJ0NNb7.jpg",
+      },
+      {
+        id: 4,
+        type: "serie",
+        title: "Teen Titans Go!",
+        poster:
+          "https://www.themoviedb.org/t/p/w600_and_h900_face/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
+      },
+    ],
+  },
+];
