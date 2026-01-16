@@ -2,16 +2,16 @@ import MediaCard from "@/components/card/MediaCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type mediaData = {
-  id: number;
+  id: string;
   title: string;
-  description: string;
+  description?: string;
   afficheH: string;
-  link: string;
-  année: number;
+  link?: string;
+  année?: number;
   recommandations: number;
-  note: number;
-  noteTMDB: number;
-  categories: string[];
+  note?: number;
+  noteTMDB?: number;
+  categories?: string[];
 };
 
 export default function MediaCarrousel({
