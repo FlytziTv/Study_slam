@@ -22,14 +22,18 @@ interface Media {
 export interface Film extends Media {
   realisateur: string;
   durée: number;
-  acteurs: { acteur: string; role: string; photo?: string | undefined }[];
+  acteurs?: {
+    id: number;
+    name: string;
+    role: string;
+  }[];
 }
 
 // Spécifique aux Séries
 export interface Serie extends Media {
   saisons: number;
   épisode: number;
-  acteurs: { acteur: string; role: string }[] | string[]; // Pour accepter tes deux formats
+  acteurs?: { id: number; name: string; role: string }[]; // Pour accepter tes deux formats
 }
 
 // Définitions des types pour les plateformes et acteurs
@@ -77,9 +81,9 @@ export const films: Film[] = [
 
     // -----
     acteurs: [
-      { acteur: "Tom Holland", role: "Peter Parker / Spider-Man" },
-      { acteur: "Michael Kaeton", role: "Adrian Toomes / Vulture" },
-      { acteur: "Robert Downey Jr.", role: "Tony Stark / Iron Man" },
+      { id: 1, name: "Tom Holland", role: "Peter Parker / Spider-Man" },
+      { id: 2, name: "Michael Kaeton", role: "Adrian Toomes / Vulture" },
+      { id: 3, name: "Robert Downey Jr.", role: "Tony Stark / Iron Man" },
     ],
   },
   {
@@ -107,9 +111,9 @@ export const films: Film[] = [
 
     // -----
     acteurs: [
-      { acteur: "Joaquin Phoenix", role: "Arthur Fleck / Joker" },
-      { acteur: "Robert De Niro", role: "Murray Franklin" },
-      { acteur: "Zazie Beetz", role: "Sophie Dumond" },
+      { id: 4, name: "Joaquin Phoenix", role: "Arthur Fleck / Joker" },
+      { id: 5, name: "Robert De Niro", role: "Murray Franklin" },
+      { id: 6, name: "Zazie Beetz", role: "Sophie Dumond" },
     ],
   },
   {
@@ -137,9 +141,9 @@ export const films: Film[] = [
 
     // -----
     acteurs: [
-      { acteur: "Keanu Reeves", role: "John Wick" },
-      { acteur: "Donnie Yen", role: "Caine" },
-      { acteur: "Bill Skarsgård", role: "Marquis" },
+      { id: 7, name: "Keanu Reeves", role: "John Wick" },
+      { id: 8, name: "Donnie Yen", role: "Caine" },
+      { id: 9, name: "Bill Skarsgård", role: "Marquis" },
     ],
   },
   {
@@ -168,22 +172,19 @@ export const films: Film[] = [
     // -----
     acteurs: [
       {
-        acteur: "Jason Statham",
+        id: 10,
+        name: "Jason Statham",
         role: "Adam Clay",
-        photo:
-          "https://image.tmdb.org/t/p/w500/o7sfT7EBtzxwiJiKmCafoebJQ2q.jpg",
       },
       {
-        acteur: "Emmy Raver-Lampman",
+        id: 11,
+        name: "Emmy Raver-Lampman",
         role: "Agent Verona Parker",
-        photo:
-          "https://image.tmdb.org/t/p/w500/cBkHUBzqoqrnkxDXWlqQmm91pD2.jpg",
       },
       {
-        acteur: "Josh Hutcherson",
+        id: 12,
+        name: "Josh Hutcherson",
         role: "Derek Danforth",
-        photo:
-          "https://image.tmdb.org/t/p/w500/f0eosZ1Fx0VBUyspq8K2f8sUSBn.jpg",
       },
     ],
   },
@@ -212,9 +213,9 @@ export const films: Film[] = [
 
     // -----
     acteurs: [
-      { acteur: "Kevin Hart", role: "Cyrus Whitaker" },
-      { acteur: "Gugu Mbatha-Raw", role: "Abby Gladwell" },
-      { acteur: "Sam Worthington", role: "Dennis Huxley" },
+      { id: 13, name: "Kevin Hart", role: "Cyrus Whitaker" },
+      { id: 14, name: "Gugu Mbatha-Raw", role: "Abby Gladwell" },
+      { id: 15, name: "Sam Worthington", role: "Dennis Huxley" },
     ],
   },
   {
@@ -242,9 +243,9 @@ export const films: Film[] = [
 
     // -----
     acteurs: [
-      { acteur: "Michael B. Jordan", role: "Smoke / Stack" },
-      { acteur: "Hailee Steinfeld", role: "Mary" },
-      { acteur: "Miles Caton", role: "Sammie Moore" },
+      { id: 16, name: "Michael B. Jordan", role: "Smoke / Stack" },
+      { id: 17, name: "Hailee Steinfeld", role: "Mary" },
+      { id: 18, name: "Miles Caton", role: "Sammie Moore" },
     ],
   },
 ];
@@ -282,7 +283,6 @@ export const series: Serie[] = [
     ],
 
     // -----
-    acteurs: ["", "", ""],
   },
   {
     id: "s2",
@@ -311,9 +311,9 @@ export const series: Serie[] = [
 
     // -----
     acteurs: [
-      { acteur: "Winona Ryder", role: "Joyce Byers" },
-      { acteur: "David Harbour", role: "Jim Hopper" },
-      { acteur: "Millie Bobby Brown", role: "Eleven / Jane Hopper" },
+      { id: 19, name: "Winona Ryder", role: "Joyce Byers" },
+      { id: 20, name: "David Harbour", role: "Jim Hopper" },
+      { id: 21, name: "Millie Bobby Brown", role: "Eleven / Jane Hopper" },
     ],
   },
   {
@@ -343,9 +343,9 @@ export const series: Serie[] = [
 
     // -----
     acteurs: [
-      { acteur: "Nathan Fillion", role: "John Nolan" },
-      { acteur: "Melissa O'Neil", role: "Lucy Chen" },
-      { acteur: "Eric Winter", role: "Tim Bradford" },
+      { id: 22, name: "Nathan Fillion", role: "John Nolan" },
+      { id: 23, name: "Melissa O'Neil", role: "Lucy Chen" },
+      { id: 24, name: "Eric Winter", role: "Tim Bradford" },
     ],
   },
 ];
@@ -610,7 +610,7 @@ export const acteursData = [
     placeOfBirth: "Brooklyn, New York City, New York, USA",
   },
   {
-    id: 21,
+    id: 19,
     name: "Winona Ryder",
     photo: "https://image.tmdb.org/t/p/w500/b2WcWMCJFb2eNFOJrExwevIBTSp.jpg",
     biography:
@@ -619,7 +619,7 @@ export const acteursData = [
     placeOfBirth: "Winona, Minnesota, USA",
   },
   {
-    id: 19,
+    id: 20,
     name: "David Harbour",
     photo: "https://image.tmdb.org/t/p/w500/qMFtMWlYVtFVyBoBhX5IoA5sN5a.jpg",
     biography:
@@ -628,7 +628,7 @@ export const acteursData = [
     placeOfBirth: "New York City, New York, USA",
   },
   {
-    id: 20,
+    id: 21,
     name: "Millie Bobby Brown",
     photo: "https://image.tmdb.org/t/p/w500/k9KGzGDVhXKfOGpoN62MNuXL28q.jpg",
     biography:
@@ -638,7 +638,7 @@ export const acteursData = [
   },
 
   {
-    id: 21,
+    id: 22,
     name: "Nathan Fillion",
     photo: "https://image.tmdb.org/t/p/w500/q31mXXgnN5PsuIjEqaaAPvBDvHc.jpg",
     biography: "Aucune biographie disponible.",
@@ -646,7 +646,7 @@ export const acteursData = [
     placeOfBirth: "Edmonton, Alberta, Canada",
   },
   {
-    id: 22,
+    id: 23,
     name: "Melissa O'Neil",
     photo: "https://image.tmdb.org/t/p/w500/9KqgbNttW79hAP9xQ5Ffd2fjGk.jpg",
     biography: "Aucune biographie disponible.",
@@ -654,7 +654,7 @@ export const acteursData = [
     placeOfBirth: "Calgary, Alberta, Canada",
   },
   {
-    id: 23,
+    id: 24,
     name: "Eric Winter",
     photo: "https://image.tmdb.org/t/p/w500/tDQSZv5rHm4s2hwwVWpp5EMQ0w9.jpg",
     biography: "Aucune biographie disponible.",

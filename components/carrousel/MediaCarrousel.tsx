@@ -35,6 +35,7 @@ export default function MediaCarrousel({
             UrlImage={media.afficheH}
             Name={media.title}
             Reco={media.recommandations}
+            Id={media.id}
           />
         ))}
       </div>

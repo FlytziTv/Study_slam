@@ -2,10 +2,12 @@
 
 import { Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 // Définition du type MediaItem
 interface MediaItem {
+  id: string;
   background: string;
   logo: string;
   title: string;
@@ -75,11 +77,14 @@ export default function BannerMedia({ data }: { data: MediaItem[] }) {
             </p>
           </button>
 
-          <button className="group flex flex-row items-center justify-center px-4 py-2 bg-black/50 hover:bg-white border border-white rounded-lg gap-2 transition-all duration-200 [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 ">
+          <Link
+            href={`/view_media/${media.id}`}
+            className="group flex flex-row items-center justify-center px-4 py-2 bg-black/50 hover:bg-white border border-white rounded-lg gap-2 transition-all duration-200 [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 "
+          >
             <p className="text-white font-regular text-base group-hover:text-black">
               En savoir plus
             </p>
-          </button>
+          </Link>
         </div>
       </div>
     </div>
