@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       "image.tmdb.org",
       "avatars.githubusercontent.com",
       "www.themoviedb.org",
+      "media.themoviedb.org",
     ],
   },
 };
