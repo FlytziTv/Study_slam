@@ -4,6 +4,7 @@ interface Media {
   afficheV: string;
   afficheH: string;
   background: string;
+  logo: string;
   title: string;
   description: string;
   année: number;
@@ -56,6 +57,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-1.jpg",
     afficheH: "/test/afficheH-1.jpg",
     background: "/test/background-1.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/3o2gGJSNsmPOxuaIxeDchKlvlv9.png",
     title: "Spider-Man : Homecoming",
     description:
       "Après ses spectaculaires débuts dans Captain America : Civil War, le jeune Peter Parker découvre peu à peu sa nouvelle identité, celle de Spider-Man, le super-héros lanceur de toile. Galvanisé par son expérience avec les Avengers, Peter rentre chez lui auprès de sa tante May, sous l’œil attentif de son nouveau mentor, Tony Stark. Il s’efforce de reprendre sa vie d’avant, mais au fond de lui, Peter rêve de se prouver qu’il est plus que le sympathique super héros du quartier. L’apparition d’un nouvel ennemi, le Vautour, va mettre en danger tout ce qui compte pour lui...",
@@ -85,6 +87,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-2.jpg",
     afficheH: "/test/afficheH-2.jpg",
     background: "/test/background-2.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/aEbOsxbcx4Jzw1IfJ5Odt30Kt3r.png",
     title: "Joker",
     description:
       "Dans les années 1980, à Gotham City, Arthur Fleck, un humoriste de stand-up raté, bascule dans la folie et devient le Joker.",
@@ -114,6 +117,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-3.jpg",
     afficheH: "/test/afficheH-3.jpg",
     background: "/test/background-3.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/sFSQdlhb4BfintzRV8IzSkCK89P.png",
     title: "John Wick : Chapitre 4",
     description:
       "John Wick affronte ses adversaires les plus redoutables dans ce quatrième volet de la série. De New York à Osaka, en passant par Paris et Berlin, John Wick mène un combat contre la Grande Table, la terrible organisation criminelle qui a mis sa tête à prix, en affrontant ses tueurs les plus dangereux...",
@@ -143,6 +147,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-4.jpg",
     afficheH: "/test/afficheH-4.jpg",
     background: "/test/background-4.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/8AOU701rM97m2JtTsonvKfDnWoV.png",
     title: "The Beekeeper",
     description:
       "La quête brutale de vengeance d’un homme prend des proportions démesurées alors que son passé d’agent secret d’une puissante organisation clandestine connue sous le nom des Apiculteurs est révélé.",
@@ -187,6 +192,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-5.jpg",
     afficheH: "/test/afficheH-5.jpg",
     background: "/test/background-5.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/5HCrjYkiRfvzvfptKduBR5eBQWm.png",
     title: "En plein vol",
     description:
       "Un pro du braquage tente le coup du siècle avec une équipe chevronnée : dérober 500 millions de dollars en or... dans un avion en plein vol !",
@@ -216,6 +222,7 @@ export const films: Film[] = [
     afficheV: "/test/afficheV-6.jpg",
     afficheH: "/test/afficheH-6.jpg",
     background: "/test/background-6.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/kPUKvxsGgQBZMThi8VbMrTeznX0.png",
     title: "Sinners",
     description:
       "Alors qu’ils cherchent à s’affranchir d’un lourd passé, deux frères jumeaux reviennent dans leur ville natale pour repartir à zéro. Mais ils comprennent qu’une puissance maléfique bien plus redoutable guette leur retour avec impatience.",
@@ -249,6 +256,7 @@ export const series: Serie[] = [
     afficheV: "/test/afficheV-7.jpg",
     afficheH: "/test/afficheH-7.jpg",
     background: "/test/background-7.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/7MbN3564j2K85SI1p5ZviK8f6u7.png",
     title: "Le Monde incroyable de Gumball",
     description:
       "Le quotidien de Gumball, un chaton bleu âgé 12 ans, ainsi que son compagnon Darwin, un poisson rouge domestique, devenu son frère adoptif après que des bras et des jambes lui aient poussé. Gumball et sa famille vivent à Elmore, une ville imaginaire, semblant appartenir au monde réel, mais qui est habitée par toutes sortes de créatures animées.",
@@ -281,6 +289,7 @@ export const series: Serie[] = [
     afficheV: "/test/afficheV-8.jpg",
     afficheH: "/test/afficheH-8.jpg",
     background: "/test/background-8.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/e9qFk5zrKZaB2IbbOI9N0W77vlh.png",
     title: "Stranger Things",
     description:
       "Quand un jeune garçon disparaît, une petite ville découvre une affaire mystérieuse, des expériences secrètes, des forces surnaturelles terrifiantes... et une fillette.",
@@ -312,6 +321,7 @@ export const series: Serie[] = [
     afficheV: "/test/afficheV-9.jpg",
     afficheH: "/test/afficheH-9.jpg",
     background: "/test/background-9.jpg",
+    logo: "https://media.themoviedb.org/t/p/w500/7JtYYpLWUOGAD4Im4YOjwfUb3Zy.png",
     title: "The Rookie : Le Flic de Los Angeles",
     description:
       "Lorsque sa femme le quitte et que son fils part à la fac, John Nolan, la quarantaine, est à un tournant de sa vie et décide de réaliser un vieux rêve : devenir flic ! Il part vivre à Los Angeles et se retrouve, malgré son âge, un bleu parmi les bleus...",
