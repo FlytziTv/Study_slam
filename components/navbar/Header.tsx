@@ -11,7 +11,7 @@ export const HeaderInfos = {
     { name: "Series", href: "/series" },
     { name: "Collections", href: "/saga" },
     { name: "Recommandations", href: "/recommendations" },
-    { name: "Mes Listes", href: "/mylist" },
+    // { name: "Mes Listes", href: "/mylist" },
     { name: "Membres", href: "/members" },
   ],
 };
