@@ -31,3 +31,21 @@ export interface MovieDetailsResponse {
   movie?: Movie;
   error?: string;
 }
+export interface TMDBmovie {
+  id: number;
+  title: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  vote_average: number;
+  overview: string;
+  release_date: string;
+}
+export interface TMDBtv {
+  id: number;
+  title: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  vote_average: number;
+  overview: string;
+  release_date: string;
+}
