@@ -1,24 +1,15 @@
 import MediaCard from "@/components/card/MediaCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Film, Serie } from "@/data/test";
 
-type mediaData = {
-  id: number;
-  title: string;
-  description: string;
-  afficheH: string;
-  link: string;
-  année: number;
-  recommandations: number;
-  note: number;
-  noteTMDB: number;
-  categories: string[];
-};
+// On définit un type qui accepte soit un Film, soit une Série
+type AnyMedia = Film | Serie;
 
 export default function MediaCarrousel({
   data,
   title,
 }: {
-  data: mediaData[];
+  data: AnyMedia[];
   title: string;
 }) {
   return (

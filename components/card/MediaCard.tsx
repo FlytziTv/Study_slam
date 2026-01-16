@@ -11,7 +11,7 @@ export default function MediaCard({
   Reco: number;
 }) {
   return (
-    <div className="w-75 aspect-video rounded-[10px] relative shrink-0 ">
+    <div className="w-74.25 aspect-video rounded-[10px] relative shrink-0 ">
       {/* Image background */}
       <Image
         src={UrlImage}
