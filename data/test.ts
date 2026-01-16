@@ -395,6 +395,46 @@ export const plateformesData = [
   },
 ];
 
+export const genresFilms = [
+  { id: "gf1", name: "Action", photo: "" },
+  { id: "gf2", name: "Adventure", photo: "" },
+  { id: "gf3", name: "Animation", photo: "" },
+  { id: "gf4", name: "Comédie", photo: "" },
+  { id: "gf5", name: "Crime", photo: "" },
+  { id: "gf6", name: "Documentaire", photo: "" },
+  { id: "gf7", name: "Drame", photo: "" },
+  { id: "gf8", name: "Famille", photo: "" },
+  { id: "gf9", name: "Fantastique", photo: "" },
+  { id: "gf10", name: "Histoire", photo: "" },
+  { id: "gf11", name: "Horreur", photo: "" },
+  { id: "gf12", name: "Musique", photo: "" },
+  { id: "gf13", name: "Mystère", photo: "" },
+  { id: "gf14", name: "Romance", photo: "" },
+  { id: "gf15", name: "Science Fiction", photo: "" },
+  { id: "gf16", name: "Téléfilm", photo: "" },
+  { id: "gf17", name: "Thriller", photo: "" },
+  { id: "gf18", name: "Guerre", photo: "" },
+  { id: "gf19", name: "Western", photo: "" },
+];
+
+export const genresSeries = [
+  { id: "gs1", name: "Action & Aventure", photo: "" },
+  { id: "gs2", name: "Animation", photo: "" },
+  { id: "gs3", name: "Comédie", photo: "" },
+  { id: "gs4", name: "Crime", photo: "" },
+  { id: "gs5", name: "Documentaire", photo: "" },
+  { id: "gs6", name: "Drame", photo: "" },
+  { id: "gs7", name: "Famille", photo: "" },
+  { id: "gs8", name: "Enfants", photo: "" },
+  { id: "gs9", name: "Mystère", photo: "" },
+  { id: "gs10", name: "Actualités", photo: "" },
+  { id: "gs11", name: "Téléréalité", photo: "" },
+  { id: "gs12", name: "Science Fiction & Fantastique", photo: "" },
+  { id: "gs13", name: "Feuilleton", photo: "" },
+  { id: "gs14", name: "Talk-Show", photo: "" },
+  { id: "gs15", name: "Guerre & Politique", photo: "" },
+];
+
 // liste d'acteurs pour faire les tests visuel sans avoir besoin de l'API
 export const acteursData = [
   {
