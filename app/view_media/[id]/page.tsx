@@ -1,10 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
 
-import {
-  ButtonViewMedia,
-  ButtonViewMediaSteam,
-} from "@/components/button/ButtonViewMedia";
 import Header from "@/components/navbar/Header";
 import { allMedia, Film, Serie, acteursData } from "@/data/test";
 import {
@@ -18,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button, ButtonLink } from "@/components/button/Button";
 
 export default function ViewMedia() {
   const params = useParams();
@@ -134,14 +131,9 @@ export default function ViewMedia() {
             <InfosMedia title="Genres">
               <div className="flex flex-row gap-2">
                 {media.genres.map((genre) => (
-                  <button
-                    key={genre}
-                    className="px-4 py-2 bg-[#FFFFFF]/10 rounded-md inline-block"
-                  >
-                    <p className="text-[#D1D5DB] font-regular text-sm">
-                      {genre}
-                    </p>
-                  </button>
+                  <Button key={genre} className="text-[#D1D5DB]">
+                    {genre}
+                  </Button>
                 ))}
               </div>
             </InfosMedia>
@@ -152,22 +144,22 @@ export default function ViewMedia() {
                 {/* 1. On vérifie si media.acteurs existe et n'est pas vide */}
                 {media.acteurs && media.acteurs.length > 0 ? (
                   media.acteurs.map((acteur) => (
-                    <Link
+                    <ButtonLink
                       href={"#"}
                       key={acteur.id}
-                      className="px-4 py-2 bg-[#FFFFFF]/10 rounded-md flex flex-row items-center gap-4"
+                      className="justify-start gap-4"
                     >
-                      <div className="w-10 h-10 rounded-full relative">
-                        <Image
-                          src={
-                            acteursData.find((a) => a.id === acteur.id)
-                              ?.photo || "/placeholder_actor.png"
-                          }
-                          alt={acteur.name}
-                          fill
-                          className="object-cover rounded-full"
-                        />
-                      </div>
+                      <Image
+                        src={
+                          acteursData.find((a) => a.id === acteur.id)?.photo ||
+                          "/placeholder_actor.png"
+                        }
+                        alt={acteur.name}
+                        width={40}
+                        height={40}
+                        className="object-cover rounded-full aspect-square relative stroke-0"
+                      />
+
                       <div className="flex flex-col items-start">
                         <p className="text-white font-medium text-base">
                           {acteur.name}
@@ -176,7 +168,7 @@ export default function ViewMedia() {
                           {acteur.role}
                         </p>
                       </div>
-                    </Link>
+                    </ButtonLink>
                   ))
                 ) : (
                   /* 3. Message si aucun acteur n'est renseigné (ex: Gumball) */
@@ -204,30 +196,37 @@ export default function ViewMedia() {
             {/* Actions possibles sur le média */}
             <InfosMedia title="Actions possibles">
               <div className="flex flex-row gap-2">
-                {/* Importation du composant ButtonViewMedia avec ses variantes */}
-                <ButtonViewMediaSteam text="Bande annonce">
+                {/* Importation du composant Button avec ses variantes */}
+
+                <Button variant="stream">
                   <Video />
-                </ButtonViewMediaSteam>
+                  Bande annonce
+                </Button>
 
-                <ButtonViewMedia text="Mettre une note">
+                <Button>
                   <NotebookPen />
-                </ButtonViewMedia>
+                  Mettre une note
+                </Button>
 
-                <ButtonViewMedia text="Ajouter au favoris">
+                <Button>
                   <Star />
-                </ButtonViewMedia>
+                  Ajouter au favoris
+                </Button>
 
-                <ButtonViewMedia text="Ajouter à une liste">
+                <Button>
                   <ListChecks />
-                </ButtonViewMedia>
+                  Ajouter à une liste
+                </Button>
 
-                <ButtonViewMedia text="Déjà vu">
+                <Button>
                   <TicketCheck />
-                </ButtonViewMedia>
+                  Déjà vu
+                </Button>
 
-                <ButtonViewMedia text="Partager">
+                <Button>
                   <Share2 />
-                </ButtonViewMedia>
+                  Partager
+                </Button>
               </div>
             </InfosMedia>
           </div>

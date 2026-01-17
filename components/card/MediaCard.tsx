@@ -1,6 +1,7 @@
 import { Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../button/Button";
 
 export default function MediaCard({
   UrlImage,
@@ -24,10 +25,15 @@ export default function MediaCard({
           fill
         />
         {/* Flamme de recommandation */}
-        <div className="absolute bg-black/60 bottom-1 left-1 flex flex-row rounded-md items-center justify-center gap-1 py-1 px-1.5 ">
-          <Flame size={18} className="text-[#CC4700]" />
-          <span className="font-regular text-sm text-white">{Reco} %</span>
-        </div>
+
+        <Button
+          variant="recommended"
+          size="recommended"
+          className="absolute bottom-1 left-1"
+        >
+          <Flame className="text-[#CC4700]" />
+          {Reco} %
+        </Button>
       </div>
     </Link>
   );

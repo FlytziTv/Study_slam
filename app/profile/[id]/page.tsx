@@ -2,10 +2,6 @@
 import { useParams } from "next/navigation";
 
 import { allMedia } from "@/data/test";
-import {
-  ButtonViewMedia,
-  ButtonViewMediaSteam,
-} from "@/components/button/ButtonViewMedia";
 import MediaCard from "@/components/card/MediaCard";
 import Header from "@/components/navbar/Header";
 import {
@@ -24,6 +20,7 @@ import Image from "next/image";
 
 import { users } from "@/data/test";
 import Link from "next/link";
+import { Button } from "@/components/button/Button";
 
 export default function Profile() {
   const params = useParams();
@@ -113,23 +110,26 @@ export default function Profile() {
 
         {/* menu choix des listes */}
         <div className="border-y border-[#262626] w-full py-4 flex flex-row gap-4 items-center justify-center">
-          <ButtonViewMediaSteam
-            text={`Ma Watchlist ( ${user.infos.watchlist} )`}
-          >
+          <Button variant="stream">
             <Film />
-          </ButtonViewMediaSteam>
-          <ButtonViewMedia text={`Mes Favoris ( ${user.infos.favoris} )`}>
+            Ma Watchlist ( {user.infos.watchlist} )
+          </Button>
+          <Button>
             <Star />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`Mes Vus ( ${user.infos.vus} )`}>
+            Mes Favoris ( {user.infos.favoris} )
+          </Button>
+          <Button>
             <TicketCheck />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`En Cours ( ${user.infos.enCours} )`}>
+            Mes Vus ( {user.infos.vus} )
+          </Button>
+          <Button>
             <Clock4 />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`Mes Listes ( ${user.infos.listes} )`}>
+            En Cours ( {user.infos.enCours} )
+          </Button>
+          <Button>
             <ListChecks />
-          </ButtonViewMedia>
+            Mes Listes ( {user.infos.listes} )
+          </Button>
         </div>
 
         {/* listes des médias */}
@@ -139,7 +139,7 @@ export default function Profile() {
             <h2 className="text-white font-bold text-2xl">
               Film et séries dans la watchlist
             </h2>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-2">
               {/* Input rechercher */}
               <div className="relative ">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-4.5" />
@@ -151,16 +151,22 @@ export default function Profile() {
               </div>
 
               {/* Bouton de filtre */}
-              <ButtonViewMediaSteam text="Tous"></ButtonViewMediaSteam>
-              <ButtonViewMedia text="Films">
+              <Button variant="stream">Tous</Button>
+
+              <Button>
                 <Film />
-              </ButtonViewMedia>
-              <ButtonViewMedia text="Séries">
+                Films
+              </Button>
+
+              <Button>
                 <Tv />
-              </ButtonViewMedia>
-              <ButtonViewMedia text="Collections">
+                Séries
+              </Button>
+
+              <Button>
                 <FolderOpen />
-              </ButtonViewMedia>
+                Collections
+              </Button>
 
               {/* Drop Menu */}
               <button className="flex flex-row items-center justify-center px-4 py-2 bg-[#FFFFFF]/10 rounded-md gap-4 transition-all [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 ">
