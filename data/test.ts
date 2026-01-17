@@ -668,120 +668,210 @@ export const users = [
     id: 1,
     name: "Chaïna92i",
     avatarUrl: "https://avatars.githubusercontent.com/u/242433335?v=4",
-    stats: [
+    bannerUrl: "",
+    createdAt: "Septembre 2022",
+    MiniStats: [
       { label: "Vus", value: 34 },
       { label: "Avis", value: 12 },
       { label: "Note", value: 30 },
     ],
-    favoritesMedia: [
+    StatsProfile: [
       {
-        id: 1,
-        type: "film",
-        title: "La Femme de ménage",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/szdrVdnS8XAzqFyzPDhYXaJk7EK.jpg",
+        label: "Notes moyennes",
+        value: 8.4,
       },
       {
-        id: 2,
-        type: "serie",
-        title: "J'irai cracher sur vos tombes",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/6kHy5g4rXg5oDjLFSRTrJ8V2RSH.jpg",
+        label: "Films regardés",
+        value: 124,
       },
       {
-        id: 3,
-        type: "serie",
-        title: "Peaky Blinders",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+        label: "Séries regardées",
+        value: 32,
       },
       {
-        id: 4,
-        type: "film",
-        title: "La Reine des neiges",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/fikeGulMBxdBmyCK8cvRbqaUcDR.jpg",
+        label: "Heures regardées",
+        value: 256,
+      },
+      {
+        label: "Nombre de favoris",
+        value: 45,
       },
     ],
+    infos: {
+      watchlist: 42,
+      favoris: 45,
+      vus: 124,
+      enCours: 7,
+      listes: 5,
+    },
+    // favoritesMedia: [
+    //   {
+    //     id: 1,
+    //     type: "film",
+    //     title: "La Femme de ménage",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/szdrVdnS8XAzqFyzPDhYXaJk7EK.jpg",
+    //   },
+    //   {
+    //     id: 2,
+    //     type: "serie",
+    //     title: "J'irai cracher sur vos tombes",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/6kHy5g4rXg5oDjLFSRTrJ8V2RSH.jpg",
+    //   },
+    //   {
+    //     id: 3,
+    //     type: "serie",
+    //     title: "Peaky Blinders",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+    //   },
+    //   {
+    //     id: 4,
+    //     type: "film",
+    //     title: "La Reine des neiges",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/fikeGulMBxdBmyCK8cvRbqaUcDR.jpg",
+    //   },
+    // ],
+    favoritesMedia: ["s1", "s2", "s3", "f6"],
   },
   {
     id: 2,
     name: "TaeVieDev",
     avatarUrl: "https://avatars.githubusercontent.com/u/201229455?v=4",
-    stats: [
+    bannerUrl: "",
+    createdAt: "Janvier 2023",
+    MiniStats: [
       { id: 1, label: "Vus", value: 60 },
       { id: 2, label: "Avis", value: 54 },
       { id: 3, label: "Note", value: 46 },
     ],
-    favoritesMedia: [
+    StatsProfile: [
       {
-        id: 1,
-        type: "serie",
-        title: "Stranger Things",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/4Y5ZXYnWBIV8Vpe8hcA0LH6hC80.jpg",
+        label: "Notes moyennes",
+        value: 7.8,
       },
       {
-        id: 2,
-        type: "film",
-        title: "Dune : Première partie",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/qpyaW4xUPeIiYA5ckg5zAZFHvsb.jpg",
+        label: "Films regardés",
+        value: 98,
       },
       {
-        id: 3,
-        type: "film",
-        title: "Bad Boys : Ride or Die",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/zCZJXSDPZKGml4I5zvxNpdx8jra.jpg",
+        label: "Séries regardées",
+        value: 27,
       },
+      { label: "Heures regardées", value: 310 },
       {
-        id: 4,
-        type: "serie",
-        title: "Game of Thrones",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/eRMfekBOnwyE9G0ffyEJIBOjX2n.jpg",
+        label: "Nombre de favoris",
+        value: 45,
       },
     ],
+    infos: {
+      watchlist: 42,
+      favoris: 45,
+      vus: 124,
+      enCours: 7,
+      listes: 5,
+    },
+    // favoritesMedia: [
+    //   {
+    //     id: 1,
+    //     type: "serie",
+    //     title: "Stranger Things",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/4Y5ZXYnWBIV8Vpe8hcA0LH6hC80.jpg",
+    //   },
+    //   {
+    //     id: 2,
+    //     type: "film",
+    //     title: "Dune : Première partie",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/qpyaW4xUPeIiYA5ckg5zAZFHvsb.jpg",
+    //   },
+    //   {
+    //     id: 3,
+    //     type: "film",
+    //     title: "Bad Boys : Ride or Die",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/zCZJXSDPZKGml4I5zvxNpdx8jra.jpg",
+    //   },
+    //   {
+    //     id: 4,
+    //     type: "serie",
+    //     title: "Game of Thrones",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/eRMfekBOnwyE9G0ffyEJIBOjX2n.jpg",
+    //   },
+    // ],
+    favoritesMedia: ["f5", "f3", "f6", "f1"],
   },
   {
     id: 3,
     name: "Flytzi",
     avatarUrl: "https://avatars.githubusercontent.com/u/150966588?v=4",
-    stats: [
+    bannerUrl: "",
+    createdAt: "Mars 2023",
+    MiniStats: [
       { label: "Vus", value: 178 },
       { label: "Avis", value: 76 },
       { label: "Note", value: 140 },
     ],
-    favoritesMedia: [
+    StatsProfile: [
       {
-        id: 1,
-        type: "film",
-        title: "The Beekeeper",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/bEXZjJqcviwuGOGLbyP4RTKRlmd.jpg",
+        label: "Notes moyennes",
+        value: 8.9,
       },
       {
-        id: 2,
-        type: "film",
-        title: "Sans aucun remords",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/mqFZul2C3xWP1IFoXvuiHU69GmN.jpg",
+        label: "Films regardés",
+        value: 150,
       },
       {
-        id: 3,
-        type: "serie",
-        title: "Alice in Borderland",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/217V9dhelgjELLZGawTmRJ0NNb7.jpg",
+        label: "Séries regardées",
+        value: 45,
       },
+      { label: "Heures regardées", value: 420 },
       {
-        id: 4,
-        type: "serie",
-        title: "Teen Titans Go!",
-        poster:
-          "https://www.themoviedb.org/t/p/w600_and_h900_face/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
+        label: "Nombre de favoris",
+        value: 60,
       },
     ],
+    infos: {
+      watchlist: 50,
+      favoris: 60,
+      vus: 150,
+      enCours: 10,
+      listes: 8,
+    },
+    // favoritesMedia: [
+    //   {
+    //     id: 1,
+    //     type: "film",
+    //     title: "The Beekeeper",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/bEXZjJqcviwuGOGLbyP4RTKRlmd.jpg",
+    //   },
+    //   {
+    //     id: 2,
+    //     type: "film",
+    //     title: "Sans aucun remords",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/mqFZul2C3xWP1IFoXvuiHU69GmN.jpg",
+    //   },
+    //   {
+    //     id: 3,
+    //     type: "serie",
+    //     title: "Alice in Borderland",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/217V9dhelgjELLZGawTmRJ0NNb7.jpg",
+    //   },
+    //   {
+    //     id: 4,
+    //     type: "serie",
+    //     title: "Teen Titans Go!",
+    //     poster:
+    //       "https://www.themoviedb.org/t/p/w600_and_h900_face/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
+    //   },
+    // ],
+    favoritesMedia: ["f1", "s2", "f3", "s3"],
   },
 ];

@@ -13,10 +13,11 @@ export default function Members() {
           {users.map((user) => (
             <MembersCard
               key={user.id}
+              Id={user.id}
               ImageUser={user.avatarUrl}
               UserName={user.name}
-              UserStats={user.stats}
-              UserFavoritesMedia={user.favoritesMedia}
+              UserStats={user.MiniStats}
+              UserFavoritesIds={user.favoritesMedia}
             />
           ))}
         </div>
