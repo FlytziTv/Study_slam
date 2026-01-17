@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, ButtonLink } from "@/components/button/Button";
+import { Button, ButtonLink } from "@/components/ui/Button";
 
 export default function ViewMedia() {
   const params = useParams();

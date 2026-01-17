@@ -1,7 +1,7 @@
 import { Flame } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../button/Button";
+import { Button } from "../ui/Button";
 
 export default function MediaCard({
   UrlImage,

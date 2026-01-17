@@ -4,6 +4,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Button, ButtonLink } from "../ui/Button";
 
 // Définition du type MediaItem
 interface MediaItem {
@@ -70,21 +71,17 @@ export default function BannerMedia({ data }: { data: MediaItem[] }) {
         <p className="font-light text-base description-banner">{maxChar}</p>
         {/* Boutons d'actions */}
         <div className="flex gap-4">
-          <button className="flex flex-row items-center justify-center px-4 py-2 bg-[#FFFFFF] hover:bg-[#d1d1d1] border border-transparent rounded-lg gap-2 transition-all [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 ">
+          <ButtonLink className="bg-white hover:bg-[#d1d1d1] text-black text-base rounded-lg">
             <Play className="text-black" />
-            <p className="text-black font-regular text-base">
-              Voir la bande-annonce
-            </p>
-          </button>
+            Voir la bande annonce
+          </ButtonLink>
 
-          <Link
+          <ButtonLink
             href={`/view_media/${media.id}`}
-            className="group flex flex-row items-center justify-center px-4 py-2 bg-black/50 hover:bg-white border border-white rounded-lg gap-2 transition-all duration-200 [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 "
+            className="border-white rounded-lg hover:bg-white hover:text-black text-base"
           >
-            <p className="text-white font-regular text-base group-hover:text-black">
-              En savoir plus
-            </p>
-          </Link>
+            En savoir plus
+          </ButtonLink>
         </div>
       </div>
     </div>

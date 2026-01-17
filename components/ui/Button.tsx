@@ -5,13 +5,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm text-white font-regular transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none ring-offset-background [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0",
+  "group inline-flex items-center border border-transparent justify-center rounded-md text-sm text-white font-regular transition-colors cursor-pointer focus:outline-none disabled:opacity-50 disabled:pointer-events-none ring-offset-background [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default: "bg-white/10 gap-2",
         recommended: "bg-black/60 gap-1",
         stream: "bg-stream gap-2 ",
+        form: "bg-white rounded-lg w-full font-medium text-black gap-2",
       },
       size: {
         default: "px-4 py-2",

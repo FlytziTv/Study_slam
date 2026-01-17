@@ -1,4 +1,6 @@
+import { Button } from "../ui/Button";
 import { GithubIcon } from "../icons/github";
+import { Input } from "../ui/Input";
 
 export default function SignIn1() {
   return (
@@ -7,15 +9,9 @@ export default function SignIn1() {
         <label htmlFor="" className="font-medium text-sm text-white">
           Email
         </label>
-        <input
-          type="email"
-          placeholder="prenom.nom@exemple.com"
-          className="text-base text-white px-4 py-2 bg-[#262626]/40 border border-[#262626] rounded-lg"
-        />
+        <Input type="email" placeholder="prenom.nom@exemple.com" />
       </div>
-      <button className="px-4 py-2 bg-white rounded-lg w-full font-medium text-black text-sm">
-        Créez votre compte
-      </button>
+      <Button variant="form">Créez votre compte</Button>
       <div className="flex flex-row gap-4 w-full items-center justify-center">
         <div
           className="h-px w-full"
@@ -33,10 +29,13 @@ export default function SignIn1() {
           }}
         />
       </div>
-      <button className="px-4 py-2 bg-black rounded-lg border border-[#262626] w-full font-medium text-white text-sm flex items-center justify-center gap-2">
+      <Button
+        variant="form"
+        className="bg-black text-white border border-[#262626] "
+      >
         <GithubIcon size={18} />
         S&apos;inscrire avec Github
-      </button>
+      </Button>
     </form>
   );
 }

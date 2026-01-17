@@ -20,7 +20,8 @@ import Image from "next/image";
 
 import { users } from "@/data/test";
 import Link from "next/link";
-import { Button } from "@/components/button/Button";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default function Profile() {
   const params = useParams();
@@ -143,10 +144,10 @@ export default function Profile() {
               {/* Input rechercher */}
               <div className="relative ">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-4.5" />
-                <input
+                <Input
                   type="text"
                   placeholder="Rechercher par nom..."
-                  className="text-white pl-10 px-4 py-2 bg-[#FFFFFF]/10 rounded-md w-90 font-regular text-sm"
+                  className="pl-10 w-90 "
                 />
               </div>
 
