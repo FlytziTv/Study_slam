@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
       { protocol: "https", hostname: "www.themoviedb.org" },
       { protocol: "https", hostname: "media.themoviedb.org" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
 };

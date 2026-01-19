@@ -1,6 +1,9 @@
+"use client";
+
 import { Button } from "../ui/Button";
 import { GithubIcon } from "../icons/github";
 import { Input } from "../ui/Input";
+import { signIn } from "next-auth/react";
 
 export default function SignIn1() {
   return (
@@ -30,7 +33,9 @@ export default function SignIn1() {
         />
       </div>
       <Button
+        type="button"
         variant="form"
+        onClick={() => signIn("github", { callbackUrl: "/" })} // Redirige vers l'accueil après connexion
         className="bg-black text-white border border-[#262626] "
       >
         <GithubIcon size={18} />
