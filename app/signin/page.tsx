@@ -22,24 +22,6 @@ export default function Signin() {
             <p className="font-semibold text-lg text-[#A1A1A1]">
               Enregistrez, notez et partagez vos films et séries préférés.
             </p>
-            {/* liste */}
-            <div className="flex flex-col gap-3">
-              <p className="text-lg text-white font-regular">
-                Pour les passionnés… ou juste pour le plaisir
-              </p>
-              <p className="text-lg text-white font-regular">
-                Simple et rapide à utiliser
-              </p>
-              <p className="text-lg text-white font-regular">
-                Connectez-vous avec vos amis
-              </p>
-              <p className="text-lg text-white font-regular">
-                Notez et retrouvez vos coups de cœur facilement
-              </p>
-            </div>
-            <p className="font-regular text-[#A1A1A1] text-base">
-              Besoin d’aide ? Contactez help@AbsoluteStream.app
-            </p>
           </div>
           {/* Card d'inscription */}
           <div className="bg-[#0F0F0F]/80 flex flex-col p-8 gap-8 rounded-2xl border border-[#262626] w-132.5">
@@ -48,8 +30,7 @@ export default function Signin() {
                 Créez votre compte Absolute Stream
               </h4>
               <p className="text-[#A1A1A1] font-regular text-sm">
-                Puis, commencez à ajouter vos films et séries préférés et à les
-                noter.
+                N&apos;attendez plus, rejoignez-nous dès aujourd&apos;hui !
               </p>
             </div>
             {/* importation des components d'inscription */}
