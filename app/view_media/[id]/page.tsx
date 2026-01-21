@@ -1,8 +1,4 @@
-"use client";
-import { useParams } from "next/navigation";
-
 import Header from "@/components/navbar/Header";
-import { allMedia, Film, Serie, acteursData } from "@/data/test";
 import {
   ListChecks,
   NotebookPen,
@@ -14,34 +10,76 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, ButtonLink } from "@/components/ui/Button";
+import { Button } from "@/components/ui/Button";
 
-export default function ViewMedia() {
-  const params = useParams();
+interface Actor {
+  id: number;
+  name: string;
+  character: string;
+  profilePath: string | null;
+}
 
-  // 1. Correction : On garde l'ID en string tel qu'il est dans tes données ("f1", "s1")
-  const MediaId = params.id as string;
+interface MediaDetails {
+  id: number;
+  title: string;
+  overview: string;
+  posterPath: string;
+  backdropPath: string;
+  releaseDate: string;
+  voteAverage: number;
+  runtime?: number;
+  genres: { id: number; name: string }[];
+  cast?: Actor[];
+}
 
-  // 2. Correction : On cherche avec .id (minuscule)
-  const media = allMedia.find((m) => m.id === MediaId);
+// Fonction pour récupérer les détails d'un film depuis l'API TMDB
+// Cette fonction est appelée côté serveur (Server Component)
+async function getMediaDetails(id: string): Promise<MediaDetails | null> {
+  try {
+    const response = await fetch(`http://localhost:3000/api/tmdb/movie/${id}`, {
+      cache: "no-store", // Désactiver le cache pour avoir toujours les données à jour
+    });
 
-  if (!media) {
+    if (!response.ok) return null;
+
+    const data = await response.json();
+    return data.success ? data.movie : null;
+  } catch (error) {
+    console.error("Erreur récupération média:", error);
+    return null;
+  }
+}
+
+export default async function ViewMedia({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const mediaData = await getMediaDetails(id);
+
+  if (!mediaData) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Média non trouvé</h1>
-          <Link href="/" className="text-stream underline">
-            Retour à l&apos;accueil
+          <Link href="/movies" className="text-stream underline">
+            Retour aux films
           </Link>
         </div>
       </div>
     );
   }
 
-  const isFilm = media.categorie === "Film";
-
-  const filmData = media as Film;
-  const serieData = media as Serie;
+  const posterUrl = mediaData.posterPath
+    ? `https://image.tmdb.org/t/p/w500${mediaData.posterPath}`
+    : "/placeholder.jpg";
+  const backdropUrl = mediaData.backdropPath
+    ? `https://image.tmdb.org/t/p/original${mediaData.backdropPath}`
+    : "/placeholder.jpg";
+  const releaseYear = mediaData.releaseDate
+    ? new Date(mediaData.releaseDate).getFullYear()
+    : "N/A";
 
   return (
     <div className="flex flex-col min-h-screen bg-black font-sans ">
@@ -49,8 +87,8 @@ export default function ViewMedia() {
       <main className="flex min-h-screen w-full flex-col items-center p-10 gap-10 pt-25 relative">
         {/* Image de fond avec flou */}
         <Image
-          src={media.afficheH}
-          alt={`Banniere ${media.title}`}
+          src={backdropUrl}
+          alt={`Banniere ${mediaData.title}`}
           fill
           className="absolute inset-0 object-cover opacity-40 blur-[2px]"
         />
@@ -60,8 +98,8 @@ export default function ViewMedia() {
           {/* Affiche du média */}
           <div className=" w-137.5 relative rounded-lg shrink-0 ">
             <Image
-              src={media.afficheV}
-              alt={`Affiche de ${media.title}`}
+              src={posterUrl}
+              alt={`Affiche de ${mediaData.title}`}
               fill
               className="object-cover rounded-lg"
             />
@@ -70,69 +108,51 @@ export default function ViewMedia() {
           <div className="flex flex-col gap-6 ">
             {/* Nom du média */}
             <h1 className="text-2xl font-bold uppercase">
-              {media.title} ({media.année})
+              {mediaData.title} ({releaseYear})
             </h1>
 
             {/* Synopsis (Résumé du média) */}
             <InfosMedia title="Synopsis">
               <p className="text-[#D1D5DB] font-regular text-base">
-                {media.description}
+                {mediaData.overview || "Aucune description disponible."}
               </p>
             </InfosMedia>
 
             {/* Informations rapides dans un tableau */}
             <div className="grid grid-cols-3 gap-4">
-              {isFilm && (
-                <>
-                  <InfosMedia title="Réalisateur">
-                    <InfosText text={filmData.realisateur} />
-                  </InfosMedia>
-
-                  <InfosMedia title="Durée">
-                    <InfosText text={`${filmData.durée} min`} />
-                  </InfosMedia>
-                </>
-              )}
-
-              {!isFilm && (
-                <>
-                  <InfosMedia title="Saisons">
-                    <InfosText text={serieData.saisons} />
-                  </InfosMedia>
-
-                  <InfosMedia title="Épisodes">
-                    <InfosText text={serieData.épisode} />
-                  </InfosMedia>
-                </>
+              {mediaData.runtime && (
+                <InfosMedia title="Durée">
+                  <InfosText text={`${mediaData.runtime} min`} />
+                </InfosMedia>
               )}
 
               <InfosMedia title="Année">
-                <InfosText text={media.année} />
+                <InfosText text={releaseYear} />
               </InfosMedia>
 
-              <InfosMedia title="Classification">
-                <InfosText text={media.classification} />
+              <InfosMedia title="Note TMDB">
+                <InfosText text={`${mediaData.voteAverage.toFixed(1)}/10`} />
               </InfosMedia>
 
-              <InfosMedia title="Note Absolute Stream">
-                <InfosText text={`${media.note}/10`} />
-              </InfosMedia>
-
-              <InfosMedia title="Note">
-                <InfosText text={`${media.noteTMDB}/10`} />
-              </InfosMedia>
-
-              <InfosMedia title="Statut">
-                <InfosText text={media.statut} />
+              <InfosMedia title="Date de sortie">
+                <InfosText
+                  text={
+                    mediaData.releaseDate
+                      ? new Date(mediaData.releaseDate).toLocaleDateString(
+                          "fr-FR",
+                        )
+                      : "N/A"
+                  }
+                />
               </InfosMedia>
             </div>
 
             {/* Genres du média */}
             <InfosMedia title="Genres">
-              <div className="flex flex-row gap-2">
-                {media.genres.map((genre) => (
-                  <Button key={genre} className="text-[#D1D5DB]">
-                    {genre}
+              <div className="flex flex-row gap-2 flex-wrap">
+                {mediaData.genres.map((genre) => (
+                  <Button key={genre.id} className="text-[#D1D5DB]">
+                    {genre.name}
                   </Button>
                 ))}
               </div>
@@ -140,43 +160,41 @@ export default function ViewMedia() {
 
             {/* Acteurs du média */}
             <InfosMedia title="Acteurs principaux">
-              <div className="grid grid-cols-3 gap-4">
-                {/* 1. On vérifie si media.acteurs existe et n'est pas vide */}
-                {media.acteurs && media.acteurs.length > 0 ? (
-                  media.acteurs.map((acteur) => (
-                    <ButtonLink
-                      href={"#"}
-                      key={acteur.id}
-                      className="justify-start gap-4"
+              {mediaData.cast && mediaData.cast.length > 0 ? (
+                <div className="grid grid-cols-3 gap-4">
+                  {mediaData.cast.map((actor) => (
+                    <div
+                      key={actor.id}
+                      className="flex items-center gap-4 p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
                     >
-                      <Image
-                        src={
-                          acteursData.find((a) => a.id === acteur.id)?.photo ||
-                          "/placeholder_actor.png"
-                        }
-                        alt={acteur.name}
-                        width={40}
-                        height={40}
-                        className="object-cover rounded-full aspect-square relative stroke-0"
-                      />
-
-                      <div className="flex flex-col items-start">
-                        <p className="text-white font-medium text-base">
-                          {acteur.name}
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
+                        <Image
+                          src={
+                            actor.profilePath
+                              ? `https://image.tmdb.org/t/p/w185${actor.profilePath}`
+                              : "/placeholder_actor.png"
+                          }
+                          alt={actor.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="flex flex-col items-start min-w-0">
+                        <p className="text-white font-medium text-base truncate w-full">
+                          {actor.name}
                         </p>
-                        <p className="text-[#D1D5DB] font-regular text-sm">
-                          {acteur.role}
+                        <p className="text-[#D1D5DB] font-regular text-sm truncate w-full">
+                          {actor.character}
                         </p>
                       </div>
-                    </ButtonLink>
-                  ))
-                ) : (
-                  /* 3. Message si aucun acteur n'est renseigné (ex: Gumball) */
-                  <p className="text-[#D1D5DB] italic text-sm col-span-3">
-                    Information sur les acteurs non disponible pour ce média.
-                  </p>
-                )}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[#D1D5DB] italic text-sm">
+                  Information sur les acteurs non disponible.
+                </p>
+              )}
             </InfosMedia>
 
             {/* Avertisement sur la source des informations */}
