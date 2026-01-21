@@ -42,10 +42,12 @@ export interface TMDBmovie {
 }
 export interface TMDBtv {
   id: number;
-  title: string;
+  name: string;
+  title?: string;
   poster_path: string | null;
   backdrop_path: string | null;
   vote_average: number;
   overview: string;
-  release_date: string;
+  first_air_date: string;
+  release_date?: string;
 }
