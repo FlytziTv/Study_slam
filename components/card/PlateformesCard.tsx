@@ -8,7 +8,7 @@ export default function PlateformesCard({
   Name: string;
 }) {
   return (
-    <div className="w-[256px] aspect-video rounded-[10px] relative shrink-0 ">
+    <div className="w-63.25 aspect-video rounded-[10px] relative shrink-0 ">
       {/* Image background */}
       <Image
         src={UrlImage}

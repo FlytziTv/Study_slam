@@ -1,9 +1,7 @@
 "use client";
+import { useParams } from "next/navigation";
 
-import {
-  ButtonViewMedia,
-  ButtonViewMediaSteam,
-} from "@/components/button/ButtonViewMedia";
+import { allMedia } from "@/data/test";
 import MediaCard from "@/components/card/MediaCard";
 import Header from "@/components/navbar/Header";
 import {
@@ -20,65 +18,59 @@ import {
 // import { Camera } from "lucide-react";
 import Image from "next/image";
 
-import { allMedia } from "@/data/test";
+import { users } from "@/data/test";
+import Link from "next/link";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 
 export default function Profile() {
-  const fake_users = {
-    username: "Flytzi",
-    avatarUrl: "https://avatars.githubusercontent.com/u/150966588?v=4",
-    bannerUrl: "/test/background-4.jpg",
-    createdAt: "janvier 2023",
-    stats: [
-      {
-        label: "Notes moyennes",
-        value: 8.4,
-      },
-      {
-        label: "Films regardés",
-        value: 124,
-      },
-      {
-        label: "Séries regardées",
-        value: 32,
-      },
-      {
-        label: "Heures regardées",
-        value: 256,
-      },
-      {
-        label: "Nombre de favoris",
-        value: 45,
-      },
-    ],
-    infos: {
-      watchlist: 42,
-      favoris: 45,
-      vus: 124,
-      enCours: 7,
-      listes: 5,
-    },
-  };
+  const params = useParams();
+
+  // On récupère l'ID de l'URL (ex: "1" pour Chaïna92i)
+  const userId = parseInt(params.id as string);
+
+  // On cherche l'utilisateur correspondant dans les données
+  const user = users.find((u) => u.id === userId);
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">Média non trouvé</h1>
+          <Link href="/" className="text-stream underline">
+            Retour à l&apos;accueil
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-black font-sans ">
       <Header />
-      <main className="flex min-h-screen w-full flex-col items-center  pt-15 relative">
+
+      <main
+        key={user.id}
+        className="flex min-h-screen w-full flex-col items-center  pt-15 relative"
+      >
         {/* Bannière et contenu du profil */}
         <div className="w-full flex flex-row gap-10 relative px-20 py-10">
           {/* Bannière de fond avec flou */}
-          <Image
-            src={fake_users.bannerUrl}
-            alt={`Bannière de ${fake_users.username}`}
-            fill
-            className="inset-0 object-cover opacity-30 blur-[2px] select-none pointer-events-none"
-          />
+          {user.bannerUrl && (
+            <Image
+              src={user.bannerUrl}
+              alt={`Bannière de ${user.name}`}
+              fill
+              className="inset-0 object-cover opacity-30 blur-[2px] select-none pointer-events-none"
+            />
+          )}
 
           {/* Contenu du profil */}
           <div className="relative w-40 h-40 shrink-0">
             {/* Photo de profile */}
             <Image
-              src={fake_users.avatarUrl}
-              alt={`Photo de profil ${fake_users.username}`}
+              src={user.avatarUrl}
+              alt={`Photo de profil ${user.name}`}
               fill
               className="rounded-full border-2 border-stream object-cover select-none pointer-events-none"
             />
@@ -91,19 +83,18 @@ export default function Profile() {
           <div className="relative flex flex-col w-full gap-4 justify-center">
             <div className="flex flex-col">
               {/* Nom d'utilisateur */}
-              <h1 className="text-4xl font-bold text-white">
-                {fake_users.username}
-              </h1>
+              <h1 className="text-4xl font-bold text-white">{user.name}</h1>
               {/* Date d'inscription */}
               <p className="text-[#A1A1A1] font-regular text-base">
-                est membre depuis {fake_users.createdAt}
+                est membre depuis {user.createdAt}
               </p>
             </div>
+
             {/* Statistiques utilisateur */}
             <div className="flex flex-row gap-4 items-center">
-              {fake_users.stats.map((stat) => (
+              {user.StatsProfile.map((stat, index) => (
                 <div
-                  key={stat.label}
+                  key={index}
                   className="flex flex-col items-center bg-[#FFFFFF]/10 rounded-lg py-2 w-full"
                 >
                   <span className="text-stream font-semibold text-3xl">
@@ -120,23 +111,26 @@ export default function Profile() {
 
         {/* menu choix des listes */}
         <div className="border-y border-[#262626] w-full py-4 flex flex-row gap-4 items-center justify-center">
-          <ButtonViewMediaSteam
-            text={`Ma Watchlist ( ${fake_users.infos.watchlist} )`}
-          >
+          <Button variant="stream">
             <Film />
-          </ButtonViewMediaSteam>
-          <ButtonViewMedia text={`Mes Favoris ( ${fake_users.infos.favoris} )`}>
+            Ma Watchlist ( {user.infos.watchlist} )
+          </Button>
+          <Button>
             <Star />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`Mes Vus ( ${fake_users.infos.vus} )`}>
+            Mes Favoris ( {user.infos.favoris} )
+          </Button>
+          <Button>
             <TicketCheck />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`En Cours ( ${fake_users.infos.enCours} )`}>
+            Mes Vus ( {user.infos.vus} )
+          </Button>
+          <Button>
             <Clock4 />
-          </ButtonViewMedia>
-          <ButtonViewMedia text={`Mes Listes ( ${fake_users.infos.listes} )`}>
+            En Cours ( {user.infos.enCours} )
+          </Button>
+          <Button>
             <ListChecks />
-          </ButtonViewMedia>
+            Mes Listes ( {user.infos.listes} )
+          </Button>
         </div>
 
         {/* listes des médias */}
@@ -146,28 +140,34 @@ export default function Profile() {
             <h2 className="text-white font-bold text-2xl">
               Film et séries dans la watchlist
             </h2>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-2">
               {/* Input rechercher */}
               <div className="relative ">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-4.5" />
-                <input
+                <Input
                   type="text"
                   placeholder="Rechercher par nom..."
-                  className="text-white pl-10 px-4 py-2 bg-[#FFFFFF]/10 rounded-md w-90 font-regular text-sm"
+                  className="pl-10 w-90 "
                 />
               </div>
 
               {/* Bouton de filtre */}
-              <ButtonViewMediaSteam text="Tous"></ButtonViewMediaSteam>
-              <ButtonViewMedia text="Films">
+              <Button variant="stream">Tous</Button>
+
+              <Button>
                 <Film />
-              </ButtonViewMedia>
-              <ButtonViewMedia text="Séries">
+                Films
+              </Button>
+
+              <Button>
                 <Tv />
-              </ButtonViewMedia>
-              <ButtonViewMedia text="Collections">
+                Séries
+              </Button>
+
+              <Button>
                 <FolderOpen />
-              </ButtonViewMedia>
+                Collections
+              </Button>
 
               {/* Drop Menu */}
               <button className="flex flex-row items-center justify-center px-4 py-2 bg-[#FFFFFF]/10 rounded-md gap-4 transition-all [&_svg:not([class*='size-'])]:size-4.5 [&_svg]:shrink-0 ">
@@ -180,15 +180,24 @@ export default function Profile() {
           </div>
 
           {/* Affichage des médias de la watchlist */}
-          <div className=" flex flex-row gap-2 flex-wrap">
-            {allMedia.map((media) => (
-              <MediaCard
-                key={media.id}
-                UrlImage={media.afficheH}
-                Name={media.title}
-                Reco={media.recommandations}
-              />
-            ))}
+          <div className="flex flex-row gap-4 flex-wrap">
+            {user.favoritesMedia?.map((mediaId) => {
+              // On cherche le média complet dans allMedia
+              const media = allMedia.find((m) => m.id === mediaId);
+
+              // Sécurité si l'ID ne correspond à rien
+              if (!media) return null;
+
+              return (
+                <MediaCard
+                  key={media.id}
+                  Id={media.id} // N'oublie pas de passer l'ID pour le Link interne de MediaCard
+                  UrlImage={media.afficheH} // Ou afficheV selon ton choix de design
+                  Name={media.title}
+                  Reco={media.recommandations}
+                />
+              );
+            })}
           </div>
         </div>
       </main>

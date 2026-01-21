@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import AuthButton from "../sign/authButton";
 
 export const HeaderInfos = {
   Name: "Absolute Stream",
@@ -11,7 +12,7 @@ export const HeaderInfos = {
     { name: "Series", href: "/series" },
     { name: "Collections", href: "/saga" },
     { name: "Recommandations", href: "/recommendations" },
-    { name: "Mes Listes", href: "/mylist" },
+    // { name: "Mes Listes", href: "/mylist" },
     { name: "Membres", href: "/members" },
   ],
 };
@@ -35,7 +36,7 @@ export default function Header() {
               href={item.href}
               className={cn(
                 "flex items-center justify-center",
-                pathname === item.href && "text-stream font-semibold"
+                pathname === item.href && "text-stream font-semibold",
               )}
             >
               {item.name}
@@ -44,12 +45,7 @@ export default function Header() {
         </div>
       </div>
       <div>
-        <Link
-          href="/signin"
-          className="flex items-center justify-center text-white"
-        >
-          Se connecter
-        </Link>
+        <AuthButton />
       </div>
     </div>
   );

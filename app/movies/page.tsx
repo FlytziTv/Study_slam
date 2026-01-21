@@ -1,6 +1,7 @@
 import Header from "@/components/navbar/Header";
 import MediaCarrousel from "@/components/carrousel/MediaCarrousel";
 import PlateformesCarrousel from "@/components/carrousel/PlateformesCarrousel";
+import BannerMedia from "@/components/page/BannerMedia";
 import { films, plateformesData, series } from "@/data/test";
 
 type CarouselItem = {
@@ -45,10 +46,10 @@ function mapToCarousel(items: RawMedia[]): CarouselItem[] {
 
 export default async function MoviesPage() {
   const moviesRes = await fetchJson<MoviesResponse>(
-    "http://localhost:3000/api/tmdb/popular-movies"
+    "http://localhost:3000/api/tmdb/popular-movies",
   );
   const seriesRes = await fetchJson<SeriesResponse>(
-    "http://localhost:3000/api/tmdb/popular-series"
+    "http://localhost:3000/api/tmdb/popular-series",
   );
 
   const movies: CarouselItem[] =
@@ -64,6 +65,7 @@ export default async function MoviesPage() {
   return (
     <div className="flex flex-col min-h-screen bg-black font-sans">
       <Header />
+      <BannerMedia data={films} />
       <main className="flex min-h-screen w-full flex-col items-center p-10 gap-10 pt-25">
         <PlateformesCarrousel data={plateformesData} />
         <MediaCarrousel data={shows} title="Séries Populaires" />

@@ -3,10 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: [
-      "image.tmdb.org",
-      "avatars.githubusercontent.com",
-      "www.themoviedb.org",
+    remotePatterns: [
+      { protocol: "https", hostname: "image.tmdb.org" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "www.themoviedb.org" },
+      { protocol: "https", hostname: "media.themoviedb.org" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
 };
