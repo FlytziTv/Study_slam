@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
  */
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   // 1. Récupération de la clé API
   const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
@@ -16,7 +16,7 @@ export async function GET(
   if (!apiKey) {
     return NextResponse.json(
       { error: "Clé API TMDb manquante" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -27,14 +27,14 @@ export async function GET(
   if (!id || isNaN(Number(id))) {
     return NextResponse.json(
       { error: "ID de film invalide" },
-      { status: 400 } // 400 = Bad Request (erreur client)
+      { status: 400 }, // 400 = Bad Request (erreur client)
     );
   }
 
-  // 4. Appel à l'API TMDb
+  // 4. Appel à l'API TMDb avec les credits pour récupérer les acteurs
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=fr-FR`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=fr-FR&append_to_response=credits`,
     );
 
     if (!response.ok) {
@@ -45,6 +45,15 @@ export async function GET(
     }
 
     const movie = await response.json();
+
+    // Extraire les 6 premiers acteurs principaux
+    const cast =
+      movie.credits?.cast?.slice(0, 6).map((actor: any) => ({
+        id: actor.id,
+        name: actor.name,
+        character: actor.character,
+        profilePath: actor.profile_path,
+      })) || [];
 
     // 5. Retour des données formatées
     return NextResponse.json({
@@ -59,13 +68,14 @@ export async function GET(
         voteAverage: movie.vote_average,
         runtime: movie.runtime,
         genres: movie.genres,
+        cast: cast,
       },
     });
   } catch (error) {
     console.error("Erreur API TMDb:", error);
     return NextResponse.json(
       { success: false, error: "Échec de la récupération du film" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
