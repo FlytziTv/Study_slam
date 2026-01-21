@@ -734,7 +734,7 @@ export const users = [
     //       "https://www.themoviedb.org/t/p/w600_and_h900_face/fikeGulMBxdBmyCK8cvRbqaUcDR.jpg",
     //   },
     // ],
-    favoritesMedia: ["s1", "s2", "s3", "f6"],
+    favoritesMedia: ["569094", "475557", "603", "66732"], // IDs TMDB: Alien: Romulus, Joker, The Matrix, Stranger Things
   },
   {
     id: 2,
@@ -803,7 +803,7 @@ export const users = [
     //       "https://www.themoviedb.org/t/p/w600_and_h900_face/eRMfekBOnwyE9G0ffyEJIBOjX2n.jpg",
     //   },
     // ],
-    favoritesMedia: ["f5", "f3", "f6", "f1"],
+    favoritesMedia: ["603", "278", "550", "155"], // IDs TMDB: The Matrix, The Shawshank Redemption, Fight Club, The Dark Knight
   },
   {
     id: 3,
@@ -872,6 +872,6 @@ export const users = [
     //       "https://www.themoviedb.org/t/p/w600_and_h900_face/kPKAigYUlWRpnfo4Ptiwlz4FWXU.jpg",
     //   },
     // ],
-    favoritesMedia: ["f1", "s2", "f3", "s3"],
+    favoritesMedia: ["872585", "238", "122", "1396"], // IDs TMDB: Oppenheimer, The Godfather, The Lord of the Rings, Breaking Bad
   },
 ];
