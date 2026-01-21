@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import { allMedia } from "@/data/test";
 import MediaCard from "@/components/card/MediaCard";
 import Header from "@/components/navbar/Header";
 import {
@@ -23,14 +23,66 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 
+interface MediaItem {
+  id: string;
+  title: string;
+  afficheH: string;
+  recommandations: number;
+}
+
 export default function Profile() {
   const params = useParams();
+  // État pour stocker les médias favoris de l'utilisateur
+  const [favoriteMedia, setFavoriteMedia] = useState<MediaItem[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // On récupère l'ID de l'URL (ex: "1" pour Chaïna92i)
+  // Récupérer l'ID de l'utilisateur depuis l'URL (ex: /profile/1)
   const userId = parseInt(params.id as string);
 
-  // On cherche l'utilisateur correspondant dans les données
+  // Chercher l'utilisateur dans les données locales
   const user = users.find((u) => u.id === userId);
+
+  // Effect pour charger les films favoris depuis l'API TMDB au chargement de la page
+  useEffect(() => {
+    async function fetchFavorites() {
+      if (!user || !user.favoritesMedia) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Créer une promesse pour chaque ID de film favori
+        // Les IDs sont maintenant des IDs TMDB (ex: "550" pour Fight Club)
+        const mediaPromises = user.favoritesMedia.map(async (mediaId) => {
+          const response = await fetch(`/api/tmdb/movie/${mediaId}`);
+          if (!response.ok) return null;
+          const data = await response.json();
+          if (!data.success || !data.movie) return null;
+
+          // Transformer les données pour correspondre à notre interface
+          return {
+            id: data.movie.id.toString(),
+            title: data.movie.title,
+            afficheH: data.movie.backdropPath
+              ? `https://image.tmdb.org/t/p/w780${data.movie.backdropPath}`
+              : "/placeholder.jpg",
+            recommandations: Math.round(data.movie.voteAverage * 10),
+          };
+        });
+
+        // Attendre que tous les films soient récupérés en parallèle
+        const results = await Promise.all(mediaPromises);
+        // Filtrer les films non trouvés (null)
+        setFavoriteMedia(results.filter((m) => m !== null) as MediaItem[]);
+      } catch (error) {
+        console.error("Erreur récupération favoris:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchFavorites();
+  }, [user]);
 
   if (!user) {
     return (
@@ -181,23 +233,21 @@ export default function Profile() {
 
           {/* Affichage des médias de la watchlist */}
           <div className="flex flex-row gap-4 flex-wrap">
-            {user.favoritesMedia?.map((mediaId) => {
-              // On cherche le média complet dans allMedia
-              const media = allMedia.find((m) => m.id === mediaId);
-
-              // Sécurité si l'ID ne correspond à rien
-              if (!media) return null;
-
-              return (
+            {loading ? (
+              <p className="text-white">Chargement...</p>
+            ) : favoriteMedia.length > 0 ? (
+              favoriteMedia.map((media) => (
                 <MediaCard
                   key={media.id}
-                  Id={media.id} // N'oublie pas de passer l'ID pour le Link interne de MediaCard
-                  UrlImage={media.afficheH} // Ou afficheV selon ton choix de design
+                  Id={media.id}
+                  UrlImage={media.afficheH}
                   Name={media.title}
                   Reco={media.recommandations}
                 />
-              );
-            })}
+              ))
+            ) : (
+              <p className="text-white/50">Aucun média dans la watchlist</p>
+            )}
           </div>
         </div>
       </main>

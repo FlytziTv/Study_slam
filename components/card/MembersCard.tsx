@@ -1,15 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { allMedia } from "@/data/test";
 import MediaVCard from "./MediaVCard";
-
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 type UserStats = {
   label: string;
   value: number;
 };
+
+interface MediaItem {
+  id: string;
+  title: string;
+  posterPath: string;
+}
 
 export default function MembersCard({
   Id,
@@ -24,8 +29,46 @@ export default function MembersCard({
   UserStats: UserStats[];
   UserFavoritesIds: string[];
 }) {
-  // router pour la navigation vers le profil
   const router = useRouter();
+  // État pour stocker les médias favoris récupérés depuis l'API
+  const [favoriteMedia, setFavoriteMedia] = useState<MediaItem[]>([]);
+
+  // Effect pour récupérer les détails des films favoris depuis l'API TMDB
+  useEffect(() => {
+    async function fetchFavorites() {
+      if (!UserFavoritesIds || UserFavoritesIds.length === 0) return;
+
+      try {
+        // Limiter à 4 favoris pour l'affichage sur la carte membre
+        const limitedIds = UserFavoritesIds.slice(0, 4);
+
+        // Créer un tableau de promesses pour récupérer tous les films en parallèle
+        const mediaPromises = limitedIds.map(async (mediaId) => {
+          const response = await fetch(`/api/tmdb/movie/${mediaId}`);
+          if (!response.ok) return null;
+          const data = await response.json();
+          if (!data.success || !data.movie) return null;
+
+          return {
+            id: data.movie.id.toString(),
+            title: data.movie.title,
+            posterPath: data.movie.posterPath
+              ? `https://image.tmdb.org/t/p/w200${data.movie.posterPath}` // Image petite taille pour les miniatures
+              : "/placeholder.jpg",
+          };
+        });
+
+        // Attendre que toutes les requêtes soient terminées
+        const results = await Promise.all(mediaPromises);
+        // Filtrer les résultats null (films non trouvés) et mettre à jour l'état
+        setFavoriteMedia(results.filter((m) => m !== null) as MediaItem[]);
+      } catch (error) {
+        console.error("Erreur récupération favoris:", error);
+      }
+    }
+
+    fetchFavorites();
+  }, [UserFavoritesIds]);
 
   return (
     // lien vers le profil de l'utilisateur
@@ -64,22 +107,14 @@ export default function MembersCard({
           className="flex flex-row items-center gap-2"
           onClick={(e) => e.stopPropagation()}
         >
-          {UserFavoritesIds?.map((mediaId) => {
-            // On cherche le média correspondant dans allMedia
-            const media = allMedia.find((m) => m.id === mediaId);
-
-            // Si le média n'existe pas, on n'affiche rien
-            if (!media) return null;
-
-            return (
-              <MediaVCard
-                key={media.id}
-                UrlImage={media.afficheV}
-                Name={media.title}
-                Id={media.id}
-              />
-            );
-          })}
+          {favoriteMedia.map((media) => (
+            <MediaVCard
+              key={media.id}
+              UrlImage={media.posterPath}
+              Name={media.title}
+              Id={media.id}
+            />
+          ))}
         </div>
       </div>
     </div>
