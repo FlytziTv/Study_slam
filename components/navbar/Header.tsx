@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import AuthButton from "../sign/authButton";
 
 export const HeaderInfos = {
   Name: "Absolute Stream",
@@ -44,9 +43,7 @@ export default function Header() {
           ))}
         </div>
       </div>
-      <div>
-        <AuthButton />
-      </div>
+      <div></div>
     </div>
   );
 }
